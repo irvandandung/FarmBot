@@ -2,4 +2,9 @@
     <string name="app_name">FarmBot</string>
     <string name="pengusir_burung">pengusir burung</string>
     <string name="pestisida">pestisida</string>
+    <string name="time">10:10 PM</string>
+    <string name="mode_alarm">Mode Alarm</string>
+    <string name="openDrawer">Drawer dibuka</string>
+    <string name="closeDrawer">Drawer ditutup</string>
+
 </resources>

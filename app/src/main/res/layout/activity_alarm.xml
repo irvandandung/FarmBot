@@ -10,14 +10,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#49a010"
-        android:gravity="center">
-        <TextView
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="#ffffff"
-            android:text="@string/mode_alarm"
-            android:layout_marginTop="7dp"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="6dp">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_back"
+                android:onClick="backpestisida"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#ffffff"
+                android:text="@string/mode_alarm" />
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

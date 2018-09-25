@@ -1,11 +1,13 @@
 package com.ghootenk.user.farmbot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private  ActionBarDrawerToggle actionBarDrawerToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         drawerLayout = findViewById(R.id.drawer);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.openDrawer, R.string.closeDrawer){
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.openDrawer, R.string.closeDrawer){
             @Override
             public void onDrawerClosed(View drawerView) {
                 // Kode di sini akan merespons setelah drawer menutup disini kita biarkan kosong
@@ -49,6 +52,23 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         //memanggil synstate
         actionBarDrawerToggle.syncState();
+    }
+
+    public void drawer(View view) {
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        drawerLayout.openDrawer(Gravity.START);
+    }
+
+    public void pengusirburung(View view) {
+        Intent intent = new Intent(this, PengusirBurungActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void Pestisida(View view) {
+        Intent intent = new Intent(this, Pestisida.class);
+        startActivity(intent);
     }
 }
 
