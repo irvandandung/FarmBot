@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/space"
+        android:checked="false"
+        tools:ignore="MenuTitle"/>
+
+    <item
+        android:id="@+id/navigation1"
+        android:checked="false"
+        android:iconTint="#29bb84"
+        android:icon="@drawable/ic_info"
+        tools:ignore="MenuTitle"
+        />
+
+    <item
+        android:id="@+id/spoce"
+        android:checked="false"
+        tools:ignore="MenuTitle"/>
+
+    <item
+        android:id="@+id/navigation2"
+        android:checked="false"
+        android:iconTint="#29bb84"
+        android:icon="@drawable/ic_about"
+        tools:ignore="MenuTitle" />
+
+</menu>
