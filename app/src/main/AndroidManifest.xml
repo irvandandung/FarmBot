@@ -19,7 +19,7 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".Pestisida" />
         <activity android:name=".PengusirBurungActivity" />
-        <activity android:name=".AlarmActivity"></activity>
+        <activity android:name=".AlarmActivity" />
     </application>
 
 </manifest>

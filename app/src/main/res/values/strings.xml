@@ -6,5 +6,7 @@
     <string name="mode_alarm">Mode Alarm</string>
     <string name="openDrawer">Drawer dibuka</string>
     <string name="closeDrawer">Drawer ditutup</string>
+    <string name="title_activity_repeating_alarm">RepeatingAlarmActivity</string>
+    <string name="title_activity_ea">eaActivity</string>
 
 </resources>
