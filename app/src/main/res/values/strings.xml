@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FarmBot</string>
     <string name="pengusir_burung">pengusir burung</string>
+    <string name="pestisida">pestisida</string>
 </resources>
