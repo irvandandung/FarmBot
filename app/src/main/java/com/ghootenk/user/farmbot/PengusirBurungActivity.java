@@ -19,7 +19,7 @@ public class PengusirBurungActivity extends AppCompatActivity {
     }
 
     public void backhome(View view) {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
 }

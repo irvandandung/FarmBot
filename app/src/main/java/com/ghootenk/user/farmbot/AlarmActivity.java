@@ -25,7 +25,7 @@ public class AlarmActivity extends AppCompatActivity {
     }
 
     public void backpestisida(View view) {
-        Intent intent = new Intent(this, Pestisida.class);
+        Intent intent = new Intent(this, PengusirBurungActivity.class);
         startActivity(intent);
     }
 }
