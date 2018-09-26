@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -21,18 +22,21 @@ import static com.ghootenk.user.farmbot.BuildConfig.URL_API;
 
 public class Pestisida extends AppCompatActivity {
     private String mURL = URL_API + "/" + DEVICE_IC;
+    private CardView tombol, tombolmati;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pestisida);
+        tombol = findViewById(R.id.nyala);
+        tombolmati = findViewById(R.id.mati);
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
         //cek status lampu
         cekStatus();
-
-        //cek realtime status lampu
+//
+//        //cek realtime status lampu
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -40,6 +44,22 @@ public class Pestisida extends AppCompatActivity {
                 Log.d("MainActivity", "runDelay");
             }
         }, 3000);
+        nyalamatibutton();
+    }
+
+    private void nyalamatibutton() {
+        tombol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setRelay("5", "0");
+            }
+        });
+        tombolmati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setRelay("5", "1");
+            }
+        });
     }
 
     private void cekStatus() {
@@ -77,12 +97,12 @@ public class Pestisida extends AppCompatActivity {
     private boolean setRelay(String pin, String status) {
         new HTTPAsyncGPIO(this).execute(mURL + "/gpio/control", pin, status);
         if (pin.equals("5") && status.equals("0")){
-//            tombolmati.setVisibility(View.VISIBLE);
-//            tombol.setVisibility(View.GONE);
+            tombolmati.setVisibility(View.VISIBLE);
+            tombol.setVisibility(View.GONE);
         }
         if (pin.equals("5") && status.equals("1")){
-//            tombol.setVisibility(View.VISIBLE);
-//            tombolmati.setVisibility(View.GONE);
+            tombol.setVisibility(View.VISIBLE);
+            tombolmati.setVisibility(View.GONE);
         }
         return false;
     }
