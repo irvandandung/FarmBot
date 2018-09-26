@@ -56,13 +56,15 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <TextClock
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:id="@+id/clock"
                 android:text="@string/time"
                 android:textColor="@color/white"
-                android:textSize="@dimen/time_text_size" />
+                android:textSize="@dimen/time_text_size"
+                tools:targetApi="jelly_bean_mr1" />
         </LinearLayout>
 
         <LinearLayout

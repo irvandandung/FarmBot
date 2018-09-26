@@ -77,6 +77,7 @@
                             android:layout_height="wrap_content"
                             android:text="Faiz Hermawan"
                             android:textSize="16sp"
+                            android:textColor="@color/color_text"
                             android:layout_marginBottom="2dp"/>
                         <TextView
                             android:layout_width="match_parent"
@@ -129,6 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Akhdan Pangestuaji"
+                            android:textColor="@color/color_text"
                             android:textSize="16sp"
                             android:layout_marginBottom="2dp"/>
                         <TextView
@@ -182,6 +184,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="M Irvan Dandung"
+                            android:textColor="@color/color_text"
                             android:textSize="16sp"
                             android:layout_marginBottom="2dp"/>
                         <TextView
