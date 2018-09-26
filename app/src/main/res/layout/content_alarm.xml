@@ -101,6 +101,10 @@
                     android:layout_weight="0.9" />
             </LinearLayout>
         </LinearLayout>
+        <Button
+            android:id="@+id/btn_set_repeating_alarm"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

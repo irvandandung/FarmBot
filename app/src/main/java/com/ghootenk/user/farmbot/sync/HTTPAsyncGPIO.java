@@ -27,9 +27,9 @@ public class HTTPAsyncGPIO extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPreExecute() {
-        progressDialog = ProgressDialog.show(context,
-                "ProgressDialog",
-                "T u n g g u . . .");
+//        progressDialog = ProgressDialog.show(context,
+//                "ProgressDialog",
+//                "T u n g g u . . .");
     }
 
     @Override

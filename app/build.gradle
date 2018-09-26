@@ -20,7 +20,7 @@ android {
 *   Masukkan token registrasi dari arkana
 * */
         buildConfigField "String", "URL_API", "\"https://api.arkademy.com:8443/v0/arkana/device/IO\""
-        buildConfigField "String", "DEVICE_IC", "\"test\""
+        buildConfigField "String", "DEVICE_IC", "\"FarmBot\""
         buildConfigField "String", "TOKEN_API", "\"NjY5MTA0OTUzLjIzMTE1ODM6\""
     }
     buildTypes {

@@ -16,11 +16,16 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.ghootenk.user.farmbot.sync.HTTPAsyncGPIO;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+import static com.ghootenk.user.farmbot.BuildConfig.DEVICE_IC;
+import static com.ghootenk.user.farmbot.BuildConfig.URL_API;
 
 public class AlarmReceiver extends BroadcastReceiver {
     public static final String TYPE_ONE_TIME = "OneTimeAlarm";
@@ -28,9 +33,13 @@ public class AlarmReceiver extends BroadcastReceiver {
     public static final String EXTRA_MESSAGE = "message";
     public static final String EXTRA_TYPE = "type";
 
+    private String mURL = URL_API + "/" + DEVICE_IC;
+    private Context c;
+
     // Siapkan 2 id untuk 2 macam alarm, onetime dna repeating
     private final int ID_ONETIME = 100;
     private final int ID_REPEATING = 101;
+
 
     public AlarmReceiver() {
     }
@@ -46,7 +55,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 //        showToast(context, title,debug);
 
-         showAlarmNotification(context, title, message, notifId);
+//         showAlarmNotification(context, title, message, notifId);
+         setRelay("5","0");
     }
 
     // Gunakan metode ini untuk menampilkan toast
@@ -55,6 +65,27 @@ public class AlarmReceiver extends BroadcastReceiver {
         Toast.makeText(context, title + " : " + message, Toast.LENGTH_LONG).show();
     }
 
+    public boolean setRelay(String pin, String status) {
+        new HTTPAsyncGPIO(c).execute(mURL + "/gpio/control", pin, status);
+        if (pin.equals("5") && status.equals("0")){
+
+        }
+        if (pin.equals("5") && status.equals("1")){
+
+        }
+        return false;
+    }
+
+//    public boolean setRelay(String pin, String status) {
+//        new HTTPAsyncGPIO(c).execute(mURL + "/gpio/control", pin, status);
+//        if (pin.equals("5") && status.equals("0")){
+//
+//        }
+//        if (pin.equals("5") && status.equals("1")){
+//
+//        }
+//        return false;
+//    }
     // Gunakan metode ini untuk menampilkan notifikasi
     public void showAlarmNotification(Context context, String title, String message, int notifId) {
         String CHANNEL_ID = "Channel_1";
