@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/bg_layoutfix"
     tools:openDrawer="start"
     android:fitsSystemWindows="true"
     android:id="@+id/drawer">
@@ -40,7 +40,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gradient"
             android:orientation="vertical"
             android:gravity="center">
 
