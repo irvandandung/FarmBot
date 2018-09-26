@@ -85,6 +85,7 @@
                 android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/tv_repeating_alarm"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -94,6 +95,7 @@
                     android:textSize="@dimen/text_alarm" />
 
                 <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/btn_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.9" />
