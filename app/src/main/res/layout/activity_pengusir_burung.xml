@@ -12,7 +12,8 @@
         android:layout_height="250dp"
         android:background="@drawable/bg_layout2"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"

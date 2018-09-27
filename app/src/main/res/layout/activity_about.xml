@@ -4,229 +4,260 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".About"
     android:background="@drawable/bg_layoutfix"
-    >
+    tools:context=".About">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingTop="10dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="6dp"
                 android:orientation="horizontal">
+
                 <ImageView
-                    android:onClick="backhome"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_back"
-                    />
+                    android:onClick="backhome"
+                    android:src="@drawable/ic_back" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
+                android:layout_marginRight="30dp"
                 android:layout_marginTop="7dp"
-                android:layout_marginRight="30dp">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textColor="#ffffff"
                     android:text="Tentang Kami"
-                    />
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
+
             <android.support.v7.widget.CardView
                 android:layout_width="300dp"
                 android:layout_height="100dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/faiz"/>
+                        android:src="@drawable/faiz" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:gravity="center">
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
                             android:text="Faiz Hermawan"
-                            android:textSize="16sp"
                             android:textColor="@color/color_text"
-                            android:layout_marginBottom="2dp"/>
+                            android:textSize="16sp" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
                             android:text="Hardware Engineers"
-                            android:textSize="10sp"
-                            android:layout_marginBottom="8dp"/>
+                            android:textSize="10sp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="20sp"
                             android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="15sp"
                                 android:layout_height="15sp"
-                                android:src="@drawable/ic_instagram"
                                 android:layout_marginRight="4dp"
-                                />
+                                android:src="@drawable/ic_instagram" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="faizhermawan_"
-                                android:textSize="12sp"/>
+                                android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="300dp"
                 android:layout_height="100dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/akhdan"/>
+                        android:src="@drawable/akhdan" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:gravity="center">
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
                             android:text="Akhdan Pangestuaji"
                             android:textColor="@color/color_text"
-                            android:textSize="16sp"
-                            android:layout_marginBottom="2dp"/>
+                            android:textSize="16sp" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
                             android:text="System Analyst | Leader"
-                            android:textSize="10sp"
-                            android:layout_marginBottom="8dp"/>
+                            android:textSize="10sp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="20sp"
                             android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="15sp"
                                 android:layout_height="15sp"
-                                android:src="@drawable/ic_instagram"
                                 android:layout_marginRight="4dp"
-                                />
+                                android:src="@drawable/ic_instagram" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="akhdanpan"
-                                android:textSize="12sp"/>
+                                android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:layout_width="300dp"
                 android:layout_height="100dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginBottom="40dp">
+                android:layout_marginBottom="40dp"
+                app:cardCornerRadius="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/dandung"/>
+                        android:src="@drawable/dandung" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:gravity="center">
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
                             android:text="M Irvan Dandung"
                             android:textColor="@color/color_text"
-                            android:textSize="16sp"
-                            android:layout_marginBottom="2dp"/>
+                            android:textSize="16sp" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
                             android:text="Android Developer"
-                            android:textSize="10sp"
-                            android:layout_marginBottom="8dp"/>
+                            android:textSize="10sp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="20sp"
                             android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="15sp"
                                 android:layout_height="15sp"
-                                android:src="@drawable/ic_instagram"
                                 android:layout_marginRight="4dp"
-                                />
+                                android:src="@drawable/ic_instagram" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="muhamad_dandoeng"
-                                android:textSize="12sp"/>
+                                android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="50sp"
                     android:layout_height="50sp"
-                    android:src="@drawable/telkom"
-                    android:layout_marginRight="15dp"/>
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/telkom" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:text="SMK TELKOM PURWOKERTO"
                     android:textColor="@color/white"
-                    android:text="SMK TELKOM PURWOKERTO"/>
+                    android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

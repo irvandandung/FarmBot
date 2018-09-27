@@ -56,7 +56,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 //        showToast(context, title,debug);
 
 //         showAlarmNotification(context, title, message, notifId);
-         setRelay("5","0");
+        setRelay("5", "0");
     }
 
     // Gunakan metode ini untuk menampilkan toast
@@ -67,16 +67,16 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     public boolean setRelay(String pin, String status) {
         new HTTPAsyncGPIOAlarm(c).execute(mURL + "/gpio/control", pin, status);
-        if (pin.equals("5") && status.equals("0")){
+        if (pin.equals("5") && status.equals("0")) {
 
         }
-        if (pin.equals("5") && status.equals("1")){
+        if (pin.equals("5") && status.equals("1")) {
 
         }
         return false;
     }
 
-//    public boolean setRelay(String pin, String status) {
+    //    public boolean setRelay(String pin, String status) {
 //        new HTTPAsyncGPIO(c).execute(mURL + "/gpio/control", pin, status);
 //        if (pin.equals("5") && status.equals("0")){
 //
@@ -172,7 +172,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.putExtra(EXTRA_MESSAGE, message);
         intent.putExtra(EXTRA_TYPE, type);
-        intent.putExtra("EXTRA_DEBUG","oopss");
+        intent.putExtra("EXTRA_DEBUG", "oopss");
 
         String timeArray[] = time.split(":");
 
@@ -214,7 +214,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     private String DATE_FORMAT = "yyyy-MM-dd";
-    private String TIME_FORMAT = "HH:mm";
+    private String TIME_FORMAT = "kk:mm:ss";
 
     // Metode ini digunakan untuk validasi date dan time
     public boolean isDateInvalid(String date, String format) {

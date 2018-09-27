@@ -23,6 +23,7 @@ import static com.ghootenk.user.farmbot.BuildConfig.URL_API;
 public class Pestisida extends AppCompatActivity {
     private String mURL = URL_API + "/" + DEVICE_IC;
     private CardView tombol, tombolmati;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,7 @@ public class Pestisida extends AppCompatActivity {
             public void onResult(JSONObject object) {
                 getStatus(object);
             }
-        }).execute( mURL + "/gpio/data");
+        }).execute(mURL + "/gpio/data");
     }
 
     private void getStatus(JSONObject object) {
@@ -96,18 +97,18 @@ public class Pestisida extends AppCompatActivity {
 
     private boolean setRelay(String pin, String status) {
         new HTTPAsyncGPIO(this).execute(mURL + "/gpio/control", pin, status);
-        if (pin.equals("5") && status.equals("0")){
+        if (pin.equals("5") && status.equals("0")) {
             tombolmati.setVisibility(View.VISIBLE);
             tombol.setVisibility(View.GONE);
         }
-        if (pin.equals("5") && status.equals("1")){
+        if (pin.equals("5") && status.equals("1")) {
             tombol.setVisibility(View.VISIBLE);
             tombolmati.setVisibility(View.GONE);
         }
         return false;
     }
 
-    public void backhome (View view){
+    public void backhome(View view) {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }

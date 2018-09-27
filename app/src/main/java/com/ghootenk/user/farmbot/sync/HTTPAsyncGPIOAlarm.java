@@ -21,8 +21,8 @@ public class HTTPAsyncGPIOAlarm extends AsyncTask<String, Void, String> {
 
     private Context context;
 
-    public HTTPAsyncGPIOAlarm(Context context){
-        this.context=context;
+    public HTTPAsyncGPIOAlarm(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class HTTPAsyncGPIOAlarm extends AsyncTask<String, Void, String> {
     private String sendHTTPData(String urlpath, JSONObject json) {
         HttpURLConnection connection = null;
         try {
-            URL url=new URL(urlpath);
+            URL url = new URL(urlpath);
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
@@ -66,7 +66,7 @@ public class HTTPAsyncGPIOAlarm extends AsyncTask<String, Void, String> {
             streamWriter.write(json.toString());
             streamWriter.flush();
             StringBuilder stringBuilder = new StringBuilder();
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 InputStreamReader streamReader = new InputStreamReader(connection.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(streamReader);
                 String response;
@@ -81,11 +81,11 @@ public class HTTPAsyncGPIOAlarm extends AsyncTask<String, Void, String> {
                 Log.e("test", connection.getResponseMessage());
                 return null;
             }
-        } catch (Exception exception){
+        } catch (Exception exception) {
             Log.e("test", exception.toString());
             return null;
         } finally {
-            if (connection != null){
+            if (connection != null) {
                 connection.disconnect();
             }
         }

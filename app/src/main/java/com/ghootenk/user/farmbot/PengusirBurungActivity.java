@@ -23,12 +23,13 @@ import static com.ghootenk.user.farmbot.BuildConfig.URL_API;
 public class PengusirBurungActivity extends AppCompatActivity {
     private String mURL = URL_API + "/" + DEVICE_IC;
     private CardView tombol, tombolmati;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengusir_burung);
-        tombol=findViewById(R.id.nyala);
-        tombolmati=findViewById(R.id.mati);
+        tombol = findViewById(R.id.nyala);
+        tombolmati = findViewById(R.id.mati);
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
@@ -52,7 +53,7 @@ public class PengusirBurungActivity extends AppCompatActivity {
         tombol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setRelay("5","0");
+                setRelay("5", "0");
             }
         });
         tombolmati.setOnClickListener(new View.OnClickListener() {
@@ -63,12 +64,13 @@ public class PengusirBurungActivity extends AppCompatActivity {
         });
     }
 
-    private void cekStatus() {new DownloadWebpageTask(new AsyncResult() {
-        @Override
-        public void onResult(JSONObject object) {
-            getStatus(object);
-        }
-    }).execute( mURL + "/gpio/data");
+    private void cekStatus() {
+        new DownloadWebpageTask(new AsyncResult() {
+            @Override
+            public void onResult(JSONObject object) {
+                getStatus(object);
+            }
+        }).execute(mURL + "/gpio/data");
     }
 
     private void getStatus(JSONObject object) {
@@ -77,21 +79,19 @@ public class PengusirBurungActivity extends AppCompatActivity {
             JSONObject result = rows.getJSONObject("result");
             String pin_5 = result.getString("5");
             Log.d("coba", pin_5);
-            if (pin_5.equals("0")){
+            if (pin_5.equals("0")) {
                 Toast.makeText(getBaseContext(), "Relay Menyala", Toast.LENGTH_SHORT).show();
 
             }
-            if (pin_5.equals("1")){
+            if (pin_5.equals("1")) {
                 Toast.makeText(getBaseContext(), "Relay Mati", Toast.LENGTH_SHORT).show();
 
-            }
-            else {
+            } else {
                 Toast.makeText(getBaseContext(), "Pembacaan status gagal...", Toast.LENGTH_SHORT).show();
 //                tombolmati.setVisibility(View.GONE);
 //                tombol.setVisibility(View.VISIBLE);
             }
-        }
-        catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
 //            tombolmati.setVisibility(View.GONE);
 //            tombol.setVisibility(View.VISIBLE);
@@ -101,11 +101,11 @@ public class PengusirBurungActivity extends AppCompatActivity {
 
     private boolean setRelay(String pin, String status) {
         new HTTPAsyncGPIO(this).execute(mURL + "/gpio/control", pin, status);
-        if (pin.equals("5") && status.equals("0")){
+        if (pin.equals("5") && status.equals("0")) {
             tombolmati.setVisibility(View.VISIBLE);
             tombol.setVisibility(View.GONE);
         }
-        if (pin.equals("5") && status.equals("1")){
+        if (pin.equals("5") && status.equals("1")) {
             tombol.setVisibility(View.VISIBLE);
             tombolmati.setVisibility(View.GONE);
         }

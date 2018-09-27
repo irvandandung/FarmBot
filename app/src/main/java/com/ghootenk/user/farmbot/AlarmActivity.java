@@ -31,14 +31,14 @@ import java.util.Locale;
 import static com.ghootenk.user.farmbot.BuildConfig.DEVICE_IC;
 import static com.ghootenk.user.farmbot.BuildConfig.URL_API;
 
-public class AlarmActivity extends AppCompatActivity implements TimePickerFragment.DialogTimeListener{
+public class AlarmActivity extends AppCompatActivity implements TimePickerFragment.DialogTimeListener {
 
     private TextView tvRepeatingTime;
     private SwitchCompat btnSwitch;
     private ContextThemeWrapper contextThemeWrapper;
     private FloatingActionButton fab;
     private Context c;
-//    private Button btnRepeating;
+    //    private Button btnRepeating;
     private AlarmReceiver alarmReceiver;
     private LinearLayout btnScreen;
 
@@ -83,12 +83,13 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerFragme
         }, 3000);
     }
 
-    private void cekStatus() {new DownloadWebpageTask(new AsyncResult() {
-        @Override
-        public void onResult(JSONObject object) {
-            getStatus(object);
-        }
-    }).execute( mURL + "/gpio/data");
+    private void cekStatus() {
+        new DownloadWebpageTask(new AsyncResult() {
+            @Override
+            public void onResult(JSONObject object) {
+                getStatus(object);
+            }
+        }).execute(mURL + "/gpio/data");
     }
 
     private void getStatus(JSONObject object) {
@@ -97,21 +98,19 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerFragme
             JSONObject result = rows.getJSONObject("result");
             String pin_5 = result.getString("5");
             Log.d("coba", pin_5);
-            if (pin_5.equals("0")){
+            if (pin_5.equals("0")) {
                 Toast.makeText(getBaseContext(), "Relay Menyala", Toast.LENGTH_SHORT).show();
 
             }
-            if (pin_5.equals("1")){
+            if (pin_5.equals("1")) {
                 Toast.makeText(getBaseContext(), "Relay Mati", Toast.LENGTH_SHORT).show();
 
-            }
-            else {
+            } else {
                 Toast.makeText(getBaseContext(), "Pembacaan status gagal...", Toast.LENGTH_SHORT).show();
 //                tombolmati.setVisibility(View.GONE);
 //                tombol.setVisibility(View.VISIBLE);
             }
-        }
-        catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
 //            tombolmati.setVisibility(View.GONE);
 //            tombol.setVisibility(View.VISIBLE);
@@ -138,7 +137,7 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerFragme
 
     final String TIME_PICKER_REPEAT_TAG = "TimePickerRepeat";
 
-    public void setAlarm(){
+    public void setAlarm() {
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -168,13 +167,13 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerFragme
         btnSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                if (isChecked) {
                     String repeatTime = tvRepeatingTime.getText().toString();
                     alarmReceiver.setRepeatingAlarm(getBaseContext(), AlarmReceiver.TYPE_REPEATING,
                             repeatTime, "Set Alarm Success");
                 } else {
                     String repeatTime = tvRepeatingTime.getText().toString();
-                    alarmReceiver.cancelAlarm(getBaseContext() ,AlarmReceiver.TYPE_REPEATING,
+                    alarmReceiver.cancelAlarm(getBaseContext(), AlarmReceiver.TYPE_REPEATING,
                             repeatTime, "Alarm Cancelled");
                 }
             }
