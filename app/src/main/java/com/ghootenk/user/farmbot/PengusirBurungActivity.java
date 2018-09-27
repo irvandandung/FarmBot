@@ -63,7 +63,6 @@ public class PengusirBurungActivity extends AppCompatActivity {
     }
 
     private void nyalamatibutton() {
-<<<<<<< HEAD
         if (isOnline()){
             tombol.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -80,7 +79,7 @@ public class PengusirBurungActivity extends AppCompatActivity {
         }else {
             Toast.makeText(this, "silakan cek koneksi internet anda", Toast.LENGTH_SHORT).show();
         }
-=======
+
         tombol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +92,6 @@ public class PengusirBurungActivity extends AppCompatActivity {
                 setRelay("5", "1");
             }
         });
->>>>>>> 740b06f036ed01d5977fd2ccd3fd47788d98b393
     }
 
     private void cekStatus() {
