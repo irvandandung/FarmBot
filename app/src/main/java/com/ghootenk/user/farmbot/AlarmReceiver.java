@@ -16,7 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.ghootenk.user.farmbot.sync.HTTPAsyncGPIO;
+import com.ghootenk.user.farmbot.sync.HTTPAsyncGPIOAlarm;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -66,7 +66,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     public boolean setRelay(String pin, String status) {
-        new HTTPAsyncGPIO(c).execute(mURL + "/gpio/control", pin, status);
+        new HTTPAsyncGPIOAlarm(c).execute(mURL + "/gpio/control", pin, status);
         if (pin.equals("5") && status.equals("0")){
 
         }
@@ -190,7 +190,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
 
-    public void cancelAlarm(Context context, String type) {
+    public void cancelAlarm(Context context, String typeRepeating, String repeatTime, String type) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, AlarmReceiver.class);
         int requestCode = type.equalsIgnoreCase(TYPE_ONE_TIME) ? ID_ONETIME : ID_REPEATING;

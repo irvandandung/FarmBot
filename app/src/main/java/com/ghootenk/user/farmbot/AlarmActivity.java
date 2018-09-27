@@ -2,24 +2,23 @@ package com.ghootenk.user.farmbot;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ghootenk.user.farmbot.sync.AsyncResult;
 import com.ghootenk.user.farmbot.sync.DownloadWebpageTask;
-import com.ghootenk.user.farmbot.sync.HTTPAsyncGPIO;
 import com.ghootenk.user.farmbot.utils.TimePickerFragment;
 
 import org.json.JSONException;
@@ -36,10 +35,14 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerFragme
 
     private TextView tvRepeatingTime;
     private SwitchCompat btnSwitch;
+    private ContextThemeWrapper contextThemeWrapper;
     private FloatingActionButton fab;
     private Context c;
-    private Button btnRepeating;
+//    private Button btnRepeating;
     private AlarmReceiver alarmReceiver;
+    private LinearLayout btnScreen;
+
+//    static Boolean isTouched;
 
     private String mURL = URL_API + "/" + DEVICE_IC;
 
@@ -49,11 +52,17 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerFragme
         setContentView(R.layout.activity_alarm);
         TextClock textClock = findViewById(R.id.clock);
 
+        contextThemeWrapper = new ContextThemeWrapper(getApplicationContext(), R.style.AppTheme);
+        btnSwitch = new SwitchCompat(contextThemeWrapper);
+//        btnScreen.addView(btnSwitch);
+
+//        isTouched =false;
+
         fab = findViewById(R.id.fab);
         tvRepeatingTime = findViewById(R.id.tv_repeating_alarm);
         btnSwitch = findViewById(R.id.btn_switch);
-        btnRepeating = findViewById(R.id.btn_set_repeating_alarm);
-
+//        btnRepeating = findViewById(R.id.btn_set_repeating_alarm);
+        btnScreen = findViewById(R.id.switch_screen);
         alarmReceiver = new AlarmReceiver();
         setAlarm();
 
@@ -61,10 +70,10 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerFragme
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        //cek status lampu
+        //cek status relay
         cekStatus();
 
-        //cek realtime status lampu
+        //cek realtime status relay
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -130,34 +139,45 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerFragme
     final String TIME_PICKER_REPEAT_TAG = "TimePickerRepeat";
 
     public void setAlarm(){
-        fab.setOnClickListener(new View.OnClickListener() {
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                TimePickerFragment timePickerFragment = new TimePickerFragment();
+//                timePickerFragment.show(getSupportFragmentManager(), TIME_PICKER_REPEAT_TAG);
+//            }
+//        });
+
+        btnScreen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 TimePickerFragment timePickerFragment = new TimePickerFragment();
                 timePickerFragment.show(getSupportFragmentManager(), TIME_PICKER_REPEAT_TAG);
             }
         });
 
-        btnRepeating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String repeatTime = tvRepeatingTime.getText().toString();
-                alarmReceiver.setRepeatingAlarm(getApplicationContext(), AlarmReceiver.TYPE_REPEATING,
-                        repeatTime, "Message");
-            }
-        });
 
-//        btnSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//        btnSwitch.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked){
-//                    String repeatTime = tvRepeatingTime.getText().toString();
-//                    alarmReceiver.setRepeatingAlarm(getBaseContext(), AlarmReceiver.TYPE_REPEATING,
-//                            repeatTime, "Set Alarm Success");
-//                } else {
-//                    alarmReceiver.cancelAlarm(c,AlarmReceiver.TYPE_REPEATING);
-//                }
+//            public void onClick(View view) {
+//                String repeatTime = tvRepeatingTime.getText().toString();
+//                alarmReceiver.setRepeatingAlarm(getApplicationContext(), AlarmReceiver.TYPE_REPEATING,
+//                        repeatTime, "Message");
 //            }
 //        });
+
+        btnSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    String repeatTime = tvRepeatingTime.getText().toString();
+                    alarmReceiver.setRepeatingAlarm(getBaseContext(), AlarmReceiver.TYPE_REPEATING,
+                            repeatTime, "Set Alarm Success");
+                } else {
+                    String repeatTime = tvRepeatingTime.getText().toString();
+                    alarmReceiver.cancelAlarm(getBaseContext() ,AlarmReceiver.TYPE_REPEATING,
+                            repeatTime, "Alarm Cancelled");
+                }
+            }
+        });
     }
 }

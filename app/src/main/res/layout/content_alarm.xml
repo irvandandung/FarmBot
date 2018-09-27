@@ -66,8 +66,9 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_marginBottom="40dp"
-                    android:text="@string/time"
+                    android:format24Hour="MMM dd, yyyy k:mm"
                     android:textColor="@color/white"
+                    android:text="24:00"
                     android:textSize="@dimen/time_text_size"
                     tools:targetApi="jelly_bean_mr1" />
             </LinearLayout>
@@ -82,7 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
                 android:orientation="horizontal"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:id="@+id/switch_screen">
 
                 <TextView
                     android:id="@+id/tv_repeating_alarm"
@@ -101,10 +103,6 @@
                     android:layout_weight="0.9" />
             </LinearLayout>
         </LinearLayout>
-        <Button
-            android:id="@+id/btn_set_repeating_alarm"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
