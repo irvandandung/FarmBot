@@ -16,20 +16,20 @@ import java.net.URL;
 
 import static com.ghootenk.user.farmbot.BuildConfig.TOKEN_API;
 
-public class HTTPAsyncGPIO extends AsyncTask<String, Void, String> {
+public class HTTPAsyncGPIOAlarm extends AsyncTask<String, Void, String> {
     ProgressDialog progressDialog;
 
     private Context context;
 
-    public HTTPAsyncGPIO(Context context) {
+    public HTTPAsyncGPIOAlarm(Context context) {
         this.context = context;
     }
 
     @Override
     protected void onPreExecute() {
-        progressDialog = ProgressDialog.show(context,
-                "ProgressDialog",
-                "T u n g g u . . .");
+//        progressDialog = ProgressDialog.show(context,
+//                "ProgressDialog",
+//                "T u n g g u . . .");
     }
 
     @Override

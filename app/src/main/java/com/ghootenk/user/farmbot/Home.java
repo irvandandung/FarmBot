@@ -15,10 +15,11 @@ import android.widget.ImageView;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-        private DrawerLayout drawer;
-        private ActionBarDrawerToggle toggle;
-        private ImageView drawerklik;
-        private CardView pengusirburung, pestisida;
+    private DrawerLayout drawer;
+    private ActionBarDrawerToggle toggle;
+    private ImageView drawerklik;
+    private CardView pengusirburung, pestisida;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

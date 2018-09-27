@@ -5,100 +5,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_layoutfix"
-    tools:context=".Pestisida"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".Pestisida">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="10dp">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="6dp">
+
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/ic_back"
                 android:onClick="backhome"
-                 />
+                android:src="@drawable/ic_back" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
+            android:layout_marginRight="30dp"
             android:layout_marginTop="7dp"
-            android:layout_marginRight="30dp">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="#ffffff"
                 android:text="Pestisida"
-             />
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
             <android.support.v7.widget.CardView
+                android:id="@+id/nyala"
                 android:layout_width="200dp"
                 android:layout_height="81dp"
-                app:cardCornerRadius="10dp"
-                android:elevation="2dp"
                 android:layout_gravity="center"
-                android:id="@+id/nyala">
+                android:elevation="2dp"
+                app:cardCornerRadius="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_play_button" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
                         android:text="Jalankan"
                         android:textColor="#24461d"
-                        android:textSize="16sp"
-                        android:layout_marginLeft="18dp"/>
+                        android:textSize="16sp" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
+                android:id="@+id/mati"
                 android:layout_width="200dp"
                 android:layout_height="81dp"
-                app:cardCornerRadius="10dp"
-                android:elevation="2dp"
                 android:layout_gravity="center"
+                android:elevation="2dp"
                 android:visibility="gone"
-                android:id="@+id/mati">
+                app:cardCornerRadius="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_pause_button" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="18dp"
                         android:text="Hentikan"
                         android:textColor="#24461d"
-                        android:textSize="16sp"
-                        android:layout_marginLeft="18dp"/>
+                        android:textSize="16sp" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
         </RelativeLayout>
