@@ -79,19 +79,6 @@ public class PengusirBurungActivity extends AppCompatActivity {
         }else {
             Toast.makeText(this, "silakan cek koneksi internet anda", Toast.LENGTH_SHORT).show();
         }
-
-        tombol.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setRelay("5", "0");
-            }
-        });
-        tombolmati.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setRelay("5", "1");
-            }
-        });
     }
 
     private void cekStatus() {
