@@ -1,6 +1,9 @@
 package com.ghootenk.user.farmbot;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
@@ -48,19 +51,33 @@ public class PengusirBurungActivity extends AppCompatActivity {
         nyalamatibutton();
     }
 
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private void nyalamatibutton() {
-        tombol.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setRelay("5","0");
-            }
-        });
-        tombolmati.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setRelay("5", "1");
-            }
-        });
+        if (isOnline()){
+            tombol.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setRelay("5","0");
+                }
+            });
+            tombolmati.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setRelay("5", "1");
+                }
+            });
+        }else {
+            Toast.makeText(this, "silakan cek koneksi internet anda", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void cekStatus() {new DownloadWebpageTask(new AsyncResult() {
